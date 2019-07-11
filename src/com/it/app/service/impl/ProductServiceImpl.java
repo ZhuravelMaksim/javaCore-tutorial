@@ -5,6 +5,9 @@ import com.it.app.dao.impl.ProductDaoImpl;
 import com.it.app.domain.Product;
 import com.it.app.service.ProductService;
 
+import java.util.Collection;
+import java.util.List;
+
 
 public class ProductServiceImpl implements ProductService {
 
@@ -23,8 +26,9 @@ public class ProductServiceImpl implements ProductService {
         return instance;
     }
 
+
     @Override
-    public Product[] getByPrice(Double price) {
+    public List<Product> getByPrice(Double price) {
         return productDao.getByPrice(price);
     }
 
@@ -34,39 +38,37 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Object save(Object object) {
-        return productDao.save(object);
+    public Product save(Product object) {
+        return null;
     }
 
     @Override
-    public Object update(Object object) {
-        return productDao.update(object);
+    public Product update(Product object) {
+        return null;
     }
 
     @Override
-    public Object[] getAll() {
+    public Collection<Product> getAll() {
         return productDao.getAll();
     }
 
     @Override
-    public Object getByName(String name) {
-        return productDao.getByName(name);
+    public Product getByName(String name) {
+        return null;
     }
 
     @Override
-    public void delete(Object object) {
-         productDao.delete(object);
+    public void delete(Product object) {
+
     }
 
     @Override
     public void deleteAll() {
-        productDao.deleteAll();
 
     }
 
     @Override
     public void deleteByName(String name) {
-        productDao.deleteByName(name);
 
     }
 }

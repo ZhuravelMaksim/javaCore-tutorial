@@ -4,6 +4,9 @@ package com.it.app.dao.impl;
 import com.it.app.dao.HeaverDao;
 import com.it.app.domain.Heaver;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class HeaverDaoImpl implements HeaverDao {
 
     private static HeaverDao instance;
@@ -25,18 +28,18 @@ public class HeaverDaoImpl implements HeaverDao {
     }
 
     @Override
-    public Heaver save(Object object) {
+    public Heaver save(Heaver object) {
         return null;
     }
 
     @Override
-    public Heaver update(Object object) {
+    public Heaver update(Heaver object) {
         return null;
     }
 
     @Override
-    public Heaver[] getAll() {
-        return new Heaver[0];
+    public Set<Heaver> getAll() {
+        return new HashSet<>();
     }
 
     @Override
@@ -45,7 +48,7 @@ public class HeaverDaoImpl implements HeaverDao {
     }
 
     @Override
-    public void delete(Object object) {
+    public void delete(Heaver object) {
 
     }
 
@@ -58,6 +61,4 @@ public class HeaverDaoImpl implements HeaverDao {
     public void deleteByName(String Name) {
 
     }
-
-
 }

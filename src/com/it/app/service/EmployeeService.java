@@ -3,12 +3,16 @@ package com.it.app.service;
 
 import com.it.app.domain.Employee;
 
-public interface EmployeeService extends GenericService {
+import java.util.Set;
 
-    boolean fire(Employee employee);
+public interface EmployeeService<T extends Employee> extends GenericService<T> {
 
-    boolean hire(Employee employee);
+    boolean fire(T employee);
 
-    boolean promote(Employee employee);
+    boolean hire(T employee);
 
+    boolean promote(T employee);
+
+    @Override
+    Set<T> getAll();
 }

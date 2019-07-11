@@ -3,6 +3,9 @@ package com.it.app.dao.impl;
 import com.it.app.dao.SellerDao;
 import com.it.app.domain.Seller;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SellerDaoImpl implements SellerDao {
 
     private static SellerDao instance;
@@ -24,27 +27,27 @@ public class SellerDaoImpl implements SellerDao {
     }
 
     @Override
-    public Seller save(Object object) {
+    public Seller save(Seller object) {
         return null;
     }
 
     @Override
-    public Seller update(Object object) {
+    public Seller update(Seller object) {
         return null;
     }
 
     @Override
-    public Seller[] getAll() {
-        return new Seller[0];
+    public Set<Seller> getAll() {
+        return new HashSet<>();
     }
 
     @Override
-    public Seller getByName(String name) {
+    public Seller getByName(String Name) {
         return null;
     }
 
     @Override
-    public void delete(Object object) {
+    public void delete(Seller object) {
 
     }
 

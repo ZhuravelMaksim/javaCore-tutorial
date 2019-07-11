@@ -2,9 +2,11 @@ package com.it.app.service;
 
 import com.it.app.domain.Product;
 
-public interface ProductService extends GenericService{
+import java.util.List;
 
-    Product[] getByPrice(Double price);
+public interface ProductService extends GenericService<Product> {
+
+    List<Product> getByPrice(Double price);
 
     Product sale(Integer count);
 }
