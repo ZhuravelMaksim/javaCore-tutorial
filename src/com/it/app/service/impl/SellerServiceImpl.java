@@ -5,6 +5,7 @@ import com.it.app.dao.impl.SellerDaoImpl;
 import com.it.app.domain.Seller;
 import com.it.app.service.SellerService;
 
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -26,33 +27,36 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Seller getByCategory(Integer category) {
-        return null;
+    public Optional<Seller> getByCategory(Integer category) {
+        return sellerDao.getByCategory(category);
     }
 
     @Override
+    //TODO
     public boolean fire(Seller employee) {
         return false;
     }
 
     @Override
+    //TODO
     public boolean hire(Seller employee) {
         return false;
     }
 
     @Override
+    //TODO
     public boolean promote(Seller employee) {
         return false;
     }
 
     @Override
-    public Seller save(Seller object) {
-        return null;
+    public Optional<Seller> save(Seller object) {
+        return sellerDao.save(object);
     }
 
     @Override
-    public Seller update(Seller object) {
-        return null;
+    public Optional<Seller> update(Seller object) {
+        return sellerDao.update(object);
     }
 
     @Override
@@ -61,8 +65,8 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Seller getByName(String name) {
-        return null;
+    public Optional<Seller> getByName(String name) {
+        return sellerDao.getByName(name);
     }
 
     @Override

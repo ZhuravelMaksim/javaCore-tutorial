@@ -7,6 +7,9 @@ import com.it.app.service.ProductService;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Optional.empty;
 
 
 public class ProductServiceImpl implements ProductService {
@@ -26,25 +29,25 @@ public class ProductServiceImpl implements ProductService {
         return instance;
     }
 
-
     @Override
     public List<Product> getByPrice(Double price) {
         return productDao.getByPrice(price);
     }
 
     @Override
-    public Product sale(Integer count) {
-        return null;
+    //TODO update method arguments
+    public Optional<Product> sale(Integer count) {
+        return empty();
     }
 
     @Override
-    public Product save(Product object) {
-        return null;
+    public Optional<Product> save(Product object) {
+        return productDao.save(object);
     }
 
     @Override
-    public Product update(Product object) {
-        return null;
+    public Optional<Product> update(Product object) {
+        return productDao.update(object);
     }
 
     @Override
@@ -53,8 +56,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getByName(String name) {
-        return null;
+    public Optional<Product> getByName(String name) {
+        return productDao.getByName(name);
     }
 
     @Override

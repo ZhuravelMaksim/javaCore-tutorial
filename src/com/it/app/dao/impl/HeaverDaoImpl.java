@@ -5,7 +5,10 @@ import com.it.app.dao.HeaverDao;
 import com.it.app.domain.Heaver;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
+
+import static java.util.Optional.empty;
 
 public class HeaverDaoImpl implements HeaverDao {
 
@@ -23,18 +26,18 @@ public class HeaverDaoImpl implements HeaverDao {
     }
 
     @Override
-    public Heaver getByBonus(Integer bonus) {
-        return null;
+    public Optional<Heaver> getByBonus(Integer bonus) {
+        return empty();
     }
 
     @Override
-    public Heaver save(Heaver object) {
-        return null;
+    public Optional<Heaver> save(Heaver object) {
+        return empty();
     }
 
     @Override
-    public Heaver update(Heaver object) {
-        return null;
+    public Optional<Heaver> update(Heaver object) {
+        return empty();
     }
 
     @Override
@@ -43,8 +46,8 @@ public class HeaverDaoImpl implements HeaverDao {
     }
 
     @Override
-    public Heaver getByName(String Name) {
-        return null;
+    public Optional<Heaver>  getByName(String Name) {
+        return empty();
     }
 
     @Override

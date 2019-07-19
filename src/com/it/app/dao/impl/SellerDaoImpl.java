@@ -4,7 +4,10 @@ import com.it.app.dao.SellerDao;
 import com.it.app.domain.Seller;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
+
+import static java.util.Optional.empty;
 
 public class SellerDaoImpl implements SellerDao {
 
@@ -22,18 +25,18 @@ public class SellerDaoImpl implements SellerDao {
     }
 
     @Override
-    public Seller getByCategory(Integer category) {
-        return null;
+    public Optional<Seller> getByCategory(Integer category) {
+        return empty();
     }
 
     @Override
-    public Seller save(Seller object) {
-        return null;
+    public Optional<Seller> save(Seller object) {
+        return empty();
     }
 
     @Override
-    public Seller update(Seller object) {
-        return null;
+    public Optional<Seller> update(Seller object) {
+        return empty();
     }
 
     @Override
@@ -42,8 +45,8 @@ public class SellerDaoImpl implements SellerDao {
     }
 
     @Override
-    public Seller getByName(String Name) {
-        return null;
+    public Optional<Seller> getByName(String Name) {
+        return empty();
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.it.app.dao.impl.HeaverDaoImpl;
 import com.it.app.domain.Heaver;
 import com.it.app.service.HeaverService;
 
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -26,33 +27,39 @@ public class HeaverServiceImpl implements HeaverService {
     }
 
     @Override
-    public Heaver getByBonus(Integer bonus) {
-        return null;
+    public Optional<Heaver> getByBonus(Integer bonus) {
+        return heaverDao.getByBonus(bonus);
     }
 
     @Override
     public boolean fire(Heaver employee) {
-        return false;
+        //add some logic
+        heaverDao.delete(employee);
+        return true;
     }
 
     @Override
     public boolean hire(Heaver employee) {
-        return false;
+        //add some logic
+        heaverDao.save(employee);
+        return true;
     }
 
     @Override
     public boolean promote(Heaver employee) {
-        return false;
+        //add some logic
+        heaverDao.update(employee);
+        return true;
     }
 
     @Override
-    public Heaver save(Heaver object) {
-        return null;
+    public Optional<Heaver> save(Heaver object) {
+        return heaverDao.save(object);
     }
 
     @Override
-    public Heaver update(Heaver object) {
-        return null;
+    public Optional<Heaver> update(Heaver object) {
+        return heaverDao.update(object);
     }
 
     @Override
@@ -61,8 +68,8 @@ public class HeaverServiceImpl implements HeaverService {
     }
 
     @Override
-    public Heaver getByName(String name) {
-        return null;
+    public Optional<Heaver> getByName(String name) {
+        return heaverDao.getByName(name);
     }
 
     @Override

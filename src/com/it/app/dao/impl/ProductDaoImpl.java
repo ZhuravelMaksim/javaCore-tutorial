@@ -6,6 +6,9 @@ import com.it.app.domain.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Optional.empty;
 
 public class ProductDaoImpl implements ProductDao {
 
@@ -28,13 +31,13 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Product save(Product object) {
-        return null;
+    public Optional<Product> save(Product object) {
+        return empty();
     }
 
     @Override
-    public Product update(Product object) {
-        return null;
+    public Optional<Product> update(Product object) {
+        return empty();
     }
 
     @Override
@@ -43,8 +46,8 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Product getByName(String Name) {
-        return null;
+    public Optional<Product> getByName(String Name) {
+        return empty();
     }
 
     @Override
