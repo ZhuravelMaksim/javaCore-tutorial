@@ -14,6 +14,8 @@ import static java.util.Optional.empty;
 
 public class ProductServiceImpl implements ProductService {
 
+    private static String path = "D:\\work\\product.txt";
+
     private static ProductService instance;
 
     private ProductDao productDao = ProductDaoImpl.getInstance();
@@ -42,7 +44,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Optional<Product> save(Product object) {
-        return productDao.save(object);
+        return productDao.save(path, object);
     }
 
     @Override

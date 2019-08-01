@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import static java.util.Optional.empty;
 
-public class ProductDaoImpl implements ProductDao {
+public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDao {
 
     private static ProductDao instance;
 
@@ -31,8 +31,8 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Optional<Product> save(Product object) {
-        return empty();
+    public Optional<Product> save(String path, Product object) {
+        return super.save(path, object);
     }
 
     @Override

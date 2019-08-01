@@ -3,13 +3,24 @@ package com.it.app.domain;
 public class Seller extends Employee {
     private Integer category;
 
-    public Seller(String name, Integer age, Integer salary, Integer category) {
-        super(name, age, salary);
+    public Seller(Long id, String name, Integer age, Integer salary, Integer category) {
+        super(id, name, age, salary);
         this.category = category;
     }
 
     public Seller() {
         super();
+    }
+
+    @Override
+    public String toString() {
+        return "Seller{" +
+                "id=" + getId() +
+                ", name='" + getName() + '\'' +
+                ", age=" + getAge() +
+                ", salary=" + getSalary() +
+                ", category=" + getCategory() +
+                '}';
     }
 
     public Integer getCategory() {

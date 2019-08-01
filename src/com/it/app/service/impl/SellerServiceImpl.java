@@ -50,8 +50,11 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
+    //TODO
     public Optional<Seller> save(Seller object) {
-        return sellerDao.save(object);
+
+       // return sellerDao.save(object);
+        return Optional.empty();
     }
 
     @Override

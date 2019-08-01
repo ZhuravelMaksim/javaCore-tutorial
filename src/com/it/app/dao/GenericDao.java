@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface GenericDao<T> {
 
-    Optional<T> save(T object);
+    Optional<T> save(String path, T object);
 
     Optional<T> update(T object);
 

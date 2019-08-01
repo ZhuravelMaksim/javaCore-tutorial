@@ -30,7 +30,7 @@ public class SellerDaoImpl implements SellerDao {
     }
 
     @Override
-    public Optional<Seller> save(Seller object) {
+    public Optional<Seller> save(String path,Seller object) {
         return empty();
     }
 

@@ -1,21 +1,33 @@
 package com.it.app.domain;
 
 
-abstract public class Employee {
+import java.io.Serializable;
+
+abstract public class Employee extends BaseEntity implements Serializable {
+    private Long id;
     private String name;
-
     private Integer age;
-
     private Integer salary;
 
     public Employee() {
 
     }
 
-    public Employee(String name, Integer age, Integer salary) {
+    public Employee(Long id, String name, Integer age, Integer salary) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                '}';
     }
 
     public String getName() {
@@ -42,4 +54,11 @@ abstract public class Employee {
         this.salary = salary;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

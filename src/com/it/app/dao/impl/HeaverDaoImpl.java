@@ -31,7 +31,7 @@ public class HeaverDaoImpl implements HeaverDao {
     }
 
     @Override
-    public Optional<Heaver> save(Heaver object) {
+    public Optional<Heaver> save(String path, Heaver object) {
         return empty();
     }
 

@@ -41,7 +41,7 @@ public class HeaverServiceImpl implements HeaverService {
     @Override
     public boolean hire(Heaver employee) {
         //add some logic
-        heaverDao.save(employee);
+        //heaverDao.save(employee);
         return true;
     }
 
@@ -53,8 +53,10 @@ public class HeaverServiceImpl implements HeaverService {
     }
 
     @Override
+    //TODO
     public Optional<Heaver> save(Heaver object) {
-        return heaverDao.save(object);
+      //  return heaverDao.save(object);
+        return null;
     }
 
     @Override

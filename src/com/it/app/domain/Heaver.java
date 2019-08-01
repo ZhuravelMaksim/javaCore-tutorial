@@ -4,8 +4,19 @@ public class Heaver extends Employee {
 
     private Integer bonus;
 
-    public Heaver(String name, Integer age, Integer salary, Integer bonus) {
-        super(name, age, salary);
+    @Override
+    public String toString() {
+        return "Heaver{" +
+                "id=" + getId() +
+                ", name='" + getName() + '\'' +
+                ", age=" + getAge() +
+                ", salary=" + getSalary() +
+                ", bonus=" + getBonus() +
+                '}';
+    }
+
+    public Heaver(Long id, String name, Integer age, Integer salary, Integer bonus) {
+        super(id, name, age, salary);
         this.bonus = bonus;
     }
 
