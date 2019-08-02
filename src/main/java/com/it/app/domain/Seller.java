@@ -1,0 +1,37 @@
+package com.it.app.domain;
+
+import com.it.app.annotation.FileStorage;
+
+@FileStorage(name = "Seller")
+public class Seller extends Employee {
+    private Integer category;
+
+    public Seller(Long id, String name, Integer age, Integer salary, Integer category) {
+        super(id, name, age, salary);
+        this.category = category;
+    }
+
+    public Seller() {
+        super();
+    }
+
+    @Override
+    public String toString() {
+        return "Seller{" +
+                "id=" + getId() +
+                ", name='" + getName() + '\'' +
+                ", age=" + getAge() +
+                ", salary=" + getSalary() +
+                ", category=" + getCategory() +
+                '}';
+    }
+
+    public Integer getCategory() {
+        return category;
+    }
+
+    public void setCategory(Integer category) {
+        this.category = category;
+    }
+
+}
