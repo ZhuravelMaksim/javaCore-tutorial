@@ -1,10 +1,13 @@
 package com.it.app.dao.impl;
 
 
+import com.it.app.annotation.processor.FileStoragePathProcessor;
 import com.it.app.dao.GenericDao;
-import com.it.app.dao.util.impl.FileReader;
-import com.it.app.dao.util.impl.FileWriter;
 import com.it.app.domain.BaseEntity;
+import com.it.app.util.Reader;
+import com.it.app.util.Writer;
+import com.it.app.util.impl.TextFileReader;
+import com.it.app.util.impl.TextFileWriter;
 
 import java.util.*;
 import java.util.function.Function;
@@ -13,66 +16,74 @@ import static java.util.stream.Collectors.toList;
 
 public abstract class GenericDaoImpl<T extends BaseEntity> implements GenericDao<T> {
 
-    final FileWriter<T> tFileWriter;
-    final FileReader<T> tFileReader;
+    final Writer<String> writer;
+    final Reader<String> reader;
     final Function<Object, T> mapper;
+    private final String path;
 
     protected GenericDaoImpl(Class<T> typeParameterClass, Function<Object, T> mapper) {
-        this.tFileWriter = new FileWriter<>(typeParameterClass);
-        this.tFileReader = new FileReader<>(typeParameterClass);
+        this.writer = TextFileWriter.getInstance();
+        this.reader = TextFileReader.getInstance();
         this.mapper = mapper;
+        this.path = FileStoragePathProcessor.getInstance().getPath(typeParameterClass);
     }
 
     @Override
     public Optional<T> save(T t) {
-        final Collection<T> collection = tFileReader.read(mapper);
+        final Collection<T> collection = getCollection();
         t.setId(generateId(collection));
         collection.add(t);
-        tFileWriter.write(collection);
+        writer.write(path, collection);
         return Optional.of(t);
+    }
+
+    private Collection<T> getCollection() {
+        return reader.read(path).stream()
+                .map(mapper)
+                .collect(toList());
     }
 
     @Override
     public Optional<T> update(T t) {
-        final Collection<T> collection = tFileReader.read(mapper);
+        final Collection<T> collection = getCollection();
         final List<T> list = getUpdatedList(t, collection);
-        tFileWriter.write(list);
+        writer.write(path, list);
         return Optional.of(t);
     }
 
     @Override
     public Collection<T> getAll() {
-        return tFileReader.read(mapper);
+        return getCollection();
     }
 
     @Override
     public Optional<T> getById(Long id) {
-        return tFileReader.read(mapper).stream()
+        return getCollection().stream()
                 .filter((o) -> o.getId().equals(id))
                 .findFirst();
     }
 
     @Override
     public void delete(T t) {
-        final Collection<T> collection = tFileReader.read(mapper);
+        final Collection<T> collection = getCollection();
         final List<T> list = collection.stream()
                 .filter((o) -> !(o.getId().equals(t.getId())))
                 .collect(toList());
-        tFileWriter.write(list);
+        writer.write(path, list);
     }
 
     @Override
     public void deleteAll() {
-        tFileWriter.write(new ArrayList<>());
+        writer.write(path, new ArrayList<>());
     }
 
     @Override
     public void deleteById(Long id) {
-        final Collection<T> collection = tFileReader.read(mapper);
+        final Collection<T> collection = getCollection();
         final List<T> list = collection.stream()
                 .filter((o) -> !(o.getId().equals(id)))
                 .collect(toList());
-        tFileWriter.write(list);
+        writer.write(path, list);
     }
 
     private Long generateId(Collection<T> collection) {
