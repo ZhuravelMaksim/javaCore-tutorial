@@ -9,5 +9,5 @@ public interface ProductService extends GenericService<Product> {
 
     List<Product> getByPrice(Double price);
 
-    Optional<Product> sale(Integer count);
+    Optional<Product> sale(Product product, Integer count);
 }

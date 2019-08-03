@@ -32,34 +32,34 @@ public class HeaverServiceImpl implements HeaverService {
     }
 
     @Override
-    public boolean fire(Heaver employee) {
+    public boolean fire(Heaver heaver) {
         //add some logic
-        heaverDao.delete(employee);
+        heaverDao.delete(heaver);
         return true;
     }
 
     @Override
-    public boolean hire(Heaver employee) {
+    public boolean hire(Heaver heaver) {
         //add some logic
-        heaverDao.save(employee);
+        heaverDao.save(heaver);
         return true;
     }
 
     @Override
-    public boolean promote(Heaver employee) {
+    public boolean promote(Heaver heaver) {
         //add some logic
-        heaverDao.update(employee);
+        heaverDao.update(heaver);
         return true;
     }
 
     @Override
-    public Optional<Heaver> save(Heaver object) {
-        return heaverDao.save(object);
+    public Optional<Heaver> save(Heaver heaver) {
+        return heaverDao.save(heaver);
     }
 
     @Override
-    public Optional<Heaver> update(Heaver object) {
-        return heaverDao.update(object);
+    public Optional<Heaver> update(Heaver heaver) {
+        return heaverDao.update(heaver);
     }
 
     @Override
@@ -73,8 +73,8 @@ public class HeaverServiceImpl implements HeaverService {
     }
 
     @Override
-    public void delete(Heaver object) {
-        heaverDao.delete(object);
+    public void delete(Heaver heaver) {
+        heaverDao.delete(heaver);
     }
 
     @Override

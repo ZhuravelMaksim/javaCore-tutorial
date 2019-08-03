@@ -32,31 +32,35 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    //TODO
-    public boolean fire(Seller employee) {
-        return false;
+    public boolean fire(Seller seller) {
+        //add some logic
+        sellerDao.delete(seller);
+        return true;
+
     }
 
     @Override
-    //TODO
-    public boolean hire(Seller employee) {
-        return false;
+    public boolean hire(Seller seller) {
+        //add some logic
+        sellerDao.save(seller);
+        return true;
     }
 
     @Override
-    //TODO
-    public boolean promote(Seller employee) {
-        return false;
+    public boolean promote(Seller seller) {
+        //add some logic
+        sellerDao.update(seller);
+        return true;
     }
 
     @Override
-    public Optional<Seller> save(Seller object) {
-        return sellerDao.save(object);
+    public Optional<Seller> save(Seller seller) {
+        return sellerDao.save(seller);
     }
 
     @Override
-    public Optional<Seller> update(Seller object) {
-        return sellerDao.update(object);
+    public Optional<Seller> update(Seller seller) {
+        return sellerDao.update(seller);
     }
 
     @Override
@@ -70,8 +74,8 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public void delete(Seller object) {
-        sellerDao.delete(object);
+    public void delete(Seller seller) {
+        sellerDao.delete(seller);
     }
 
     @Override

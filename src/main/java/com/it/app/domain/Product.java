@@ -5,14 +5,14 @@ import com.it.app.annotation.FileStorage;
 @FileStorage(name = "Product")
 public class Product extends BaseEntity {
     private String name;
-    private String count;
+    private Integer count;
     private Double price;
 
     public Product() {
 
     }
 
-    public Product(Long id, String name, String count, Double price) {
+    public Product(Long id, String name, Integer count, Double price) {
         super(id);
         this.name = name;
         this.count = count;
@@ -37,11 +37,14 @@ public class Product extends BaseEntity {
         this.name = name;
     }
 
-    public String getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(String count) {
+    public void setCount(Integer count) {
+        if (count < 0) {
+            throw new IllegalArgumentException("Count cannot be less than zero!");
+        }
         this.count = count;
     }
 
@@ -50,6 +53,9 @@ public class Product extends BaseEntity {
     }
 
     public void setPrice(Double price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be less than zero!");
+        }
         this.price = price;
     }
 }

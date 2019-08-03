@@ -9,8 +9,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-import static java.util.Optional.empty;
-
 
 public class ProductServiceImpl implements ProductService {
 
@@ -35,19 +33,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    //TODO update method arguments
-    public Optional<Product> sale(Integer count) {
-        return empty();
+    public Optional<Product> sale(Product product, Integer count) {
+        product.setCount(product.getCount() - count);
+        return productDao.update(product);
     }
 
     @Override
-    public Optional<Product> save(Product object) {
-        return productDao.save(object);
+    public Optional<Product> save(Product product) {
+        return productDao.save(product);
     }
 
     @Override
-    public Optional<Product> update(Product object) {
-        return productDao.update(object);
+    public Optional<Product> update(Product product) {
+        return productDao.update(product);
     }
 
     @Override
@@ -61,8 +59,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void delete(Product object) {
-        productDao.delete(object);
+    public void delete(Product product) {
+        productDao.delete(product);
     }
 
     @Override

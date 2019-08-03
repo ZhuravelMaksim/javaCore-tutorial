@@ -6,15 +6,15 @@ import java.util.Optional;
 
 public interface GenericDao<T> {
 
-    Optional<T> save(T object);
+    Optional<T> save(T t);
 
-    Optional<T> update(T object);
+    Optional<T> update(T t);
 
     Collection<T> getAll();
 
     Optional<T> getById(Long id);
 
-    void delete(T object);
+    void delete(T t);
 
     void deleteAll();
 
